@@ -1,0 +1,11 @@
+body{
+  overflow-x: hidden;
+}html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+position: relative;
+}
