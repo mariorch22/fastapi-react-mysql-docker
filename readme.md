@@ -1,6 +1,6 @@
 # FastAPI MySQL Docker Project
 
-A FastAPI project blueprint with MySQL database running in Docker containers.
+A FastAPI + ReactJS project blueprint with MySQL database running in Docker containers.
 
 ## Prerequisites
 
@@ -17,6 +17,13 @@ cd fastapi-mysql-docker
 
 2. Add a .env file
 ```bash
+# Frontend
+FRONTEND_URL=http://localhost:5173
+
+# Backend
+BACKEND_URL=http://localhost:8000
+
+# DB
 MYSQL_USER=user
 MYSQL_PASSWORD=password
 MYSQL_HOST=db
@@ -48,7 +55,8 @@ pip install -r src/requirements.txt
 ```
 
 ## API Endpoints
-The API is available at http://localhost:8000.
+The FastAPI-API is available at http://localhost:8000.
+The React-page is available at http://localhost:5173.
 
 - GET /users/: List all users  
 - POST /users/: Create new user
@@ -69,10 +77,10 @@ The API is available at http://localhost:8000.
 `make logs`
 
 - Python Shell:  
-`make shell`
+`make backend-shell`
+
+- React Shell:  
+`make frontend-shell`
 
 - MySQL Shell:  
 `make db-shell`
-
-- Freeze dependencies:  
-`make freeze`
