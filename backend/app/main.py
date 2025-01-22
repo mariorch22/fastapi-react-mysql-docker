@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from app.db.base import Base  # Neue Import
 from app.db.session import engine
-from app.middleware.test import add_process_time_header  # Neue Import
+from app.middleware.test import add_process_time_header
+from app.middleware.cors import cors_middleware
 from app.api.endpoints import root
 from app.api.endpoints import user
 
@@ -10,7 +11,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 app.middleware("http")(add_process_time_header)
-
+app.middleware("http")(cors_middleware)
 
 # Include routers
 app.include_router(root.router)

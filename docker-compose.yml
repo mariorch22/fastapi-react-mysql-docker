@@ -14,6 +14,8 @@ services:
       - backend
     environment:
       - NODE_ENV=development
+      - FRONTEND_URL=${FRONTEND_URL}
+      - BACKEND_URL=${BACKEND_URL}
     restart: on-failure
 
   backend:
@@ -29,6 +31,8 @@ services:
     depends_on:
       - db
     environment:
+      - FRONTEND_URL=${FRONTEND_URL}
+      - BACKEND_URL=${BACKEND_URL}
       - MYSQL_HOST=${MYSQL_HOST}
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}

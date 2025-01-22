@@ -1,14 +1,23 @@
-import { useState } from 'react'
-import './App.css'
+import { baseURL } from '@/utils/constants';
+import useFetch from '@/hooks/useFetch';
+import '@/App.css'
+
+interface MessageData {
+  message: string;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { data, loading, error } = useFetch<MessageData>(`${baseURL}`);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <>
-      <h1 className="text-2xl font-bold underline">
-        Hello world!1
-      </h1>
+      <div>
+        <h1>Today's Weather</h1>
+        <p>Message from backend: {data?.message}</p>
+      </div>
     </>
   )
 }

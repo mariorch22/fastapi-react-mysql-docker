@@ -5,4 +5,4 @@ router = APIRouter(tags=["root"])
 
 @router.get("/")
 def read_root():
-    return {"Hello": "World!! OMEGALUL"}
+    return {"message": "Hello World!! OMEGALUL"}
