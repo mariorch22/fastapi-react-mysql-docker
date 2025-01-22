@@ -1,4 +1,4 @@
-# FastAPI MySQL Docker Project
+# FastAPI + ReactJS + MySQL - Docker-Project
 
 A FastAPI + ReactJS project blueprint with MySQL database running in Docker containers.
 
